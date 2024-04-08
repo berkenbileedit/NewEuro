@@ -5,25 +5,42 @@
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
 <script>
-	let prefix=["https://quiz-eudoraoficial.online","https://pay.pagamentooficial.site"];
-	function getParams() {
-	   let t = "",
-		  e = window.top.location.href,
-		  r = new URL(e);
-	   if (null != r) {
-		  let a = r.searchParams.get("utm_source"),
-			 n = r.searchParams.get("utm_medium"),
-			 o = r.searchParams.get("utm_campaign"),
-			 m = r.searchParams.get("utm_term"),
-			 c = r.searchParams.get("utm_content"); - 1 !== e.indexOf("?") && (t = &sck=${a}|${n}|${o}|${m}|${c}), console.log(t)
-	   }
-	   return t
-	}! function () {
-	   var t = new URLSearchParams(window.location.search);
-	   t.toString() && document.querySelectorAll("a").forEach(function (e) {
-		  for (let r = 0; r < prefix.length; r++) - 1 !== e.href.indexOf(prefix[r]) && (-1 === e.href.indexOf("?") ? e.href += "?" + t.toString() + getParams() : e.href += "&" + t.toString() + getParams())
-	   })
-	}(); 
+    let prefix = ["https://quiz-eudoraoficial.online", "https://pay.pagamentooficial.site"];
+
+    function getParams() {
+        let t = "",
+            e = window.top.location.href,
+            r = new URL(e);
+        if (null != r) {
+            let a = r.searchParams.get("utm_source"),
+                n = r.searchParams.get("utm_medium"),
+                o = r.searchParams.get("utm_campaign"),
+                m = r.searchParams.get("utm_term"),
+                c = r.searchParams.get("utm_content");
+            if (-1 !== e.indexOf("?")) {
+                t = `&sck=${a}|${n}|${o}|${m}|${c}`;
+            }
+            console.log("Params:", t);
+        }
+        return t;
+    }
+
+    !function () {
+        var t = new URLSearchParams(window.location.search);
+        t.toString() && document.querySelectorAll("a").forEach(function (e) {
+            for (let r = 0; r < prefix.length; r++) {
+                if (-1 !== e.href.indexOf(prefix[r])) {
+                    let paramsString = t.toString() + getParams();
+                    if (-1 === e.href.indexOf("?")) {
+                        e.href += "?" + paramsString;
+                    } else {
+                        e.href += "&" + paramsString;
+                    }
+                    console.log("Modified URL:", e.href);
+                }
+            }
+        });
+    }();
 </script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <style>

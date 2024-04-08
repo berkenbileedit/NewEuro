@@ -21,8 +21,7 @@
                 o = r.searchParams.get("utm_campaign"),
                 m = r.searchParams.get("utm_term"),
                 c = r.searchParams.get("utm_content");
-            t = `&sck=${a}|${n}|${o}|${m}|${c}`;
-            console.log(t);
+            t = `&utm_source=${a}&utm_medium=${n}&utm_campaign=${o}&utm_term=${m}&utm_content=${c}`;
         }
         return t;
     }

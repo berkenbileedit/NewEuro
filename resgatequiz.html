@@ -10,6 +10,17 @@
     <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
     <script src="js/bootstrap.bundle.min.js"></script>
     <title>Avaliação Eudora</title> 
+<script>
+  window.onload = function () {
+	var links = document.getElementsByTagName("a");
+	for (var i = 0, n = links.length; i < n; i++) {
+	  var href = links[i].href.trim() +
+		(links[i].href.indexOf("?") > 0 ? '&' : '?') +
+		document.location.search.replace('?', '').toString();
+	  links[i].href = href;
+	}
+  }
+</script>
 <header>
 <body>
       <i class="fa-solid fa-bars" style="color: white"></i>
@@ -333,15 +344,4 @@
         $("#todayDate").html(`${date} de ${month} de ${year}**`);
       });
     </script>
-<script>
-  window.onload = function () {
-	var links = document.getElementsByTagName("a");
-	for (var i = 0, n = links.length; i < n; i++) {
-	  var href = links[i].href.trim() +
-		(links[i].href.indexOf("?") > 0 ? '&' : '?') +
-		document.location.search.replace('?', '').toString();
-	  links[i].href = href;
-	}
-  }
-</script>
 </body></html>
